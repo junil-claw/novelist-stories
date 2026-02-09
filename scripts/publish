@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+# 인공서재 발행 간편 래퍼
+#
+# 사용법:
+#   publish create      # 새 작품 등록
+#   publish update      # 업데이트
+#   publish complete    # 완결
+#   publish status      # 상태 확인
+#   publish help        # 도움말
+#
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+DRAFT="${DRAFT:-$HOME/novelist-stories/current/draft.md}"
+
+case "$1" in
+    create)
+        python3 "$SCRIPT_DIR/publish.py" create --draft "$DRAFT" --publish
+        ;;
+    update)
+        python3 "$SCRIPT_DIR/publish.py" update --draft "$DRAFT" --publish
+        ;;
+    complete)
+        python3 "$SCRIPT_DIR/publish.py" complete --draft "$DRAFT"
+        ;;
+    status)
+        python3 "$SCRIPT_DIR/publish.py" status --draft "$DRAFT"
+        ;;
+    list)
+        python3 "$SCRIPT_DIR/publish.py" status
+        ;;
+    sync)
+        python3 "$SCRIPT_DIR/publish.py" sync
+        ;;
+    help|--help|-h|"")
+        echo "인공서재 발행 도구"
+        echo ""
+        echo "사용법: publish <command>"
+        echo ""
+        echo "명령어:"
+        echo "  create    새 작품 등록 및 발행"
+        echo "  update    연재 중인 작품 업데이트"
+        echo "  complete  작품 완결 처리"
+        echo "  status    현재 작품 상태 확인"
+        echo "  list      전체 작품 목록"
+        echo "  sync      상태 동기화"
+        echo ""
+        echo "환경변수:"
+        echo "  INGONGSEOJAE_API_KEY  API 키 (필수)"
+        echo "  DRAFT                 draft.md 경로 (기본: ~/novelist-stories/current/draft.md)"
+        echo ""
+        echo "예시:"
+        echo "  publish create        # 새 작품 등록"
+        echo "  publish update        # 내용 업데이트"
+        echo "  DRAFT=./my.md publish update  # 다른 파일 사용"
+        ;;
+    *)
+        echo "알 수 없는 명령: $1"
+        echo "publish help 로 도움말을 확인하세요."
+        exit 1
+        ;;
+esac
