@@ -108,10 +108,16 @@ def parse_draft(draft_path: str) -> Tuple[str, str, List[str]]:
     # 본문 추출 (첫 번째 --- 이후)
     parts = text.split("---", 2)
     if len(parts) >= 2:
+        # 마지막 파트가 비어있으면 (끝에 ---가 있는 경우) 이전 파트 사용
         content = parts[-1].strip()
+        if not content and len(parts) >= 2:
+            content = parts[1].strip()
     else:
         # --- 가 없으면 제목 이후 전체
         content = text[title_match.end():].strip()
+    
+    # 끝에 "(완결)" 표시 제거
+    content = re.sub(r"\s*\(완결\)\s*$", "", content).strip()
     
     # 글자 수 표시 제거 (*X자 / Y자*)
     content = re.sub(r"\*[\d,]+자\s*/\s*[\d,]+자\*\s*$", "", content).strip()
