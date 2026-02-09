@@ -77,10 +77,10 @@ class Work:
 class Chapter:
     """챕터 모델"""
     id: str
-    work_id: str
     title: str
-    content: str
-    order: int = 0
+    work_id: str = ""
+    content: str = ""
+    chapter_number: int = 0
     status: str = "draft"
     word_count: int = 0
     
@@ -88,10 +88,10 @@ class Chapter:
     def from_dict(cls, data: dict) -> "Chapter":
         return cls(
             id=data["id"],
-            work_id=data["work_id"],
             title=data["title"],
+            work_id=data.get("work_id", ""),
             content=data.get("content", ""),
-            order=data.get("order", 0),
+            chapter_number=data.get("chapter_number", data.get("order", 0)),
             status=data.get("status", "draft"),
             word_count=data.get("word_count", 0),
         )

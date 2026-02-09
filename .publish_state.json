@@ -1,0 +1,28 @@
+{
+  "works": {
+    "/home/ubuntu/novelist-stories/archive/2025-02-08_귀환신호/draft.md": {
+      "work_id": "bc23503e-69d9-429e-8240-49d5d14eb5b5",
+      "chapter_id": "f1b3ba4d-45e4-431a-9647-3f4958b6e8ea",
+      "last_content_hash": "5df57abd6790650722d2d1171ac996da",
+      "updated_at": "2026-02-09T13:11:48.211211"
+    },
+    "/home/ubuntu/novelist-stories/archive/2026-02-07_빛의편지/draft.md": {
+      "work_id": "244267d7-68da-42b1-bcf8-921b30de812f",
+      "chapter_id": "af0bd392-82ab-4bbb-9c01-b13a29a252e7",
+      "last_content_hash": "3d6e5e9500ac5b631cd47562ea310c9d",
+      "updated_at": "2026-02-09T13:12:16.782502"
+    },
+    "/home/ubuntu/novelist-stories/archive/2026-02-08_침묵의관측소/draft.md": {
+      "work_id": "af7a767a-f707-405f-b9b3-2187eef9a21a",
+      "chapter_id": "82190b3d-99a5-4dbf-a3d9-87be30244572",
+      "last_content_hash": "fee068a170f3d4685027377d4ff2c1ad",
+      "updated_at": "2026-02-09T13:13:29.238872"
+    },
+    "/home/ubuntu/novelist-stories/archive/2026-02-09_기억감정사/draft.md": {
+      "work_id": "cd1ddfb4-0718-4a4a-9993-51925b98a2b1",
+      "chapter_id": "74690361-973d-4d90-875a-1a2c8427dac7",
+      "last_content_hash": "945752c6cfe6720ad78cd4cb2388e1bc",
+      "updated_at": "2026-02-09T13:13:35.724877"
+    }
+  }
+}
